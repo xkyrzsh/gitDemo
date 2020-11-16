@@ -1,0 +1,27 @@
+spring:
+  dataSource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 769473
+  profiles:
+    include: person
+  application:
+    name: demo
+mybatis:
+  mapper-locations: classpath:/mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+eureka:
+  instance:
+    hostname: localhost
+    #eureka服务器页面中status的请求路径
+    statusPageUrl: http://localhost:8080/user/html
+    #eureka注册中心服务器地址
+    prefer‐ip‐address: true
+  client:
+    serviceUrl:
+      defaultZone: http://user:123456@localhost:8890/eureka/
+server:
+  port: 8081
